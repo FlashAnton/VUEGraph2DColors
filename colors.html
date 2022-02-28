@@ -1,0 +1,88 @@
+<HTML>
+
+	<TITLE>Проверка функционирования области для рисования</TITLE>
+
+	<BODY>
+
+		<SCRIPT SRC="Vue.js"></SCRIPT>
+
+		<div id="draw">
+			Ширина области рисования: <input v-model="wi">
+			<br>
+			Высота области рисования: <input v-model="hi">
+			<br>
+			<br>
+			Координата X начала линии: <input v-model="stX">
+			<br>
+			Координата Y начала линии: <input v-model="stY">
+			<br>			
+			Координата X конца линии: <input v-model="enX">
+			<br>
+			Координата Y конца линии: <input v-model="enY">
+			<br>			
+			<br>
+			Цвет линии: <input v-model="clL">
+			<br>
+			Цвет заливки: <input v-model="clF">
+			<br>
+			<svg :width="wi" 
+				 :height="hi">
+				 
+				<rect :fill="clF" 
+						:width="wi" 
+						:height="hi"/>
+						
+				<line :stroke="clL" 
+						:x1="stX" 
+						:y1="stY" 
+						:x2="enX" 
+						:y2="enY"/>			
+			</svg>
+			
+		</div>
+		
+		<SCRIPT>	
+			var myView = new Vue(
+			{
+				el: "#draw",
+				
+				data:
+				{
+					stX: 0,
+					enX: 500,
+					stY: 0,
+					enY: 500,
+					wi: 500,
+					hi: 500,
+					clF: '#ffcf0f',
+					clL: '#000000',
+				},
+				
+				computed:
+				{
+				
+				},
+				
+				methods:
+				{
+					
+					
+				}
+			});
+		</SCRIPT>
+
+		<STYLE TYPE="text/css">
+			svg
+			{
+				border: 1px solid #000000;
+			}
+			
+			input
+			{
+				width:60px;
+			}
+		</STYLE>
+
+	</BODY>
+
+</HTML>
